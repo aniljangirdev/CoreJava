@@ -1,6 +1,8 @@
 package pack1;
 
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 class CustomHashMap<K, V> {
     private static final int DEFAULT_CAPACITY = 16;
