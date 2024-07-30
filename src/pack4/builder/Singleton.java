@@ -5,7 +5,7 @@ public class Singleton {
     private static final Singleton instance = new Singleton();
 
     private Singleton(){
-
+        
     }
 
     static synchronized Singleton getInstance(){

@@ -4,10 +4,17 @@ import java.util.Set;
 
 public class Department {
 
-    private ClassLoader classLoader;
     private Integer depId;
     private String deptName;
     private Set<Employee> employees;
+
+    public void setDepId(Integer depId) {
+        this.depId = depId;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
 
     public Integer getDepId() {
         return depId;
