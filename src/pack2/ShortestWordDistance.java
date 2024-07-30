@@ -11,17 +11,23 @@ public class ShortestWordDistance {
 
         String[] input = {"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"};
         String[] input1 = {"a", "c", "d", "b", "a"};
+        String w1 = "a";
+        String w2 = "b";
         String word1 = "fox";
         String word2 = "dog";
 
         // assume total length of the string
         // as minimum distance
-        int output = getShortestWordDistance(input, word1, word2);
+        int output = getShortestWordDistance(input1, w1, w2);
+        int output1 = getShortestWordDistance1(input, word1, word2);
 
-        System.out.println(output);
+        System.out.println(output1);
     }
 
     // find minimum distance of two word from string
+    /*
+    with TC O(n2) and SC O(n)
+    * */
     private static int getShortestWordDistance(String[] input, String word1, String word2) {
 
         if (word1.equals(word2)) return 0;
@@ -49,4 +55,29 @@ public class ShortestWordDistance {
         }
         return minDist;
     }
+
+    // with TC O(n), SC O(1)
+    private static int getShortestWordDistance1(String[] input, String word1, String word2) {
+        int i1 = -1;
+        int i2 = -1;
+        int shortest = Integer.MAX_VALUE;
+
+        for (int i = 0; i < input.length; i++) {
+            if (input[i].equals(word1)) {
+                i1 = i;
+            }
+            if (input[i].equals(word2)) {
+                i2 = i;
+            }
+
+            if (i1 != -1 && i2 != -1) {
+                int distance = Math.abs(i1 - i2);
+                if (distance < shortest) {
+                    shortest = distance;
+                }
+            }
+        }
+        return shortest;
+    }
+
 }
