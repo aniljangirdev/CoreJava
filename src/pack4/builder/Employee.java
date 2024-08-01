@@ -5,13 +5,14 @@ import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Employee implements Comparator<Employee> {
+public class Employee implements Comparator<Employee>  {
 
     private final Integer empId;
     private final String empName;
     private final int departmentId;
     private final BigDecimal salary;
     private final Integer age;
+    private String gender;
 
     public Employee(Integer empId, String empName, int departmentId, BigDecimal salary, Integer age) {
         this.empId = empId;
@@ -21,6 +22,22 @@ public class Employee implements Comparator<Employee> {
         this.age = age;
 
     }
+
+    public Employee(Integer empId, String empName, int departmentId, BigDecimal salary, Integer age, String gender) {
+        this.empId = empId;
+        this.empName = empName;
+        this.departmentId = departmentId;
+        this.salary = salary;
+        this.age = age;
+
+        this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+
 
     public Integer getEmpId() {
         return empId;
@@ -57,7 +74,7 @@ public class Employee implements Comparator<Employee> {
         if (this == obj) {
             return true;
         }
-        if(obj == null || getClass() != obj.getClass())
+        if (obj == null || getClass() != obj.getClass())
             return false;
 
         Employee employee = (Employee) obj;
